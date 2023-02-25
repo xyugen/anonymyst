@@ -1,0 +1,38 @@
+header {
+    padding: 15px 8em;
+    border-bottom: 1px solid var(--color-bg-variant);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    width: 20em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .nav-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: .25s;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--color-bg-variant);
+}
+
+nav .nav-icon:hover {
+    background-color: var(--color-primary-variant);
+    cursor: pointer;
+}
+
+nav .btn {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
