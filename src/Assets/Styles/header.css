@@ -19,7 +19,7 @@ nav .nav-icon {
     justify-content: space-between;
     align-items: center;
 
-    transition: .25s;
+    transition: var(--transition);
     padding: 10px;
     border-radius: 50%;
     background-color: var(--color-bg-variant);

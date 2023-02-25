@@ -10,6 +10,8 @@
 
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Poppins', sans-serif;
+
+    --transition: all .15s;
 }
 
 body {
@@ -36,7 +38,7 @@ h6 {
     color: var(--color-fg);
 
     font-family: var(--font-primary);
-    transition: .25s;
+    transition: var(--transition);
 }
 
 .btn:hover {
