@@ -1,16 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../../Components/Card/Card'
 import '../../Assets/Styles/home.css'
 
+import { supabase } from '../../Services/supabase'
+
 const Home = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const { data, error } = await supabase
+        .from('posts')
+        .select(`
+          *,
+          comments(count)
+        `);
+      if (error) console.log('Error fetching data: ', error);
+      else setData(data);
+    }
+
+    fetchData();
+  }, []);
+
+  console.log(data);
+
   return (
     <div className='posts'>
-      <Card className='post' title="Anonymous" content="tes" date="August 12, 2023" comCount='12' />
-      <Card className='post' title="Yugen" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor" date="August 12, 2023" comCount='12' />
-      <Card className='post' title="Anonymous" content="tes" date="August 12, 2023" comCount='12' />
-      <Card className='post' title="Anonymous" content="tes" date="August 12, 2023" comCount='12' />
-      <Card className='post' title="Anonymous" content="tes" date="August 12, 2023" comCount='12' />
-      <Card className='post' title="Anonymous" content="tes" date="August 12, 2023" comCount='12' />
+      {data.map((post) => (
+        <Card
+          key={post.id}
+          title={post.title}
+          date={post.date}
+          content={post.content}
+          comCount={post.comments[0].count}
+        />
+      ))}
     </div>
   )
 }
