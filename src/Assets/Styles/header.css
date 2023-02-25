@@ -30,11 +30,45 @@ nav .nav-icon:hover {
     cursor: pointer;
 }
 
-nav .btn {
-    border-radius: 10px;
+header .btn {
+    border-radius: 5px;
     padding: 10px;
     font-size: 15px;
     cursor: pointer;
+}
+
+.nav-btn {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    display: none;
+}
+
+.nav-dropdown {
+    display: none;
+
+    position: absolute;
+    top: 72px;
+    right: 17px;
+
+    border: 2px solid var(--color-fg-variant);
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 159px;
+
+    color: var(--color-fg);
+    background-color: var(--color-bg-variant);
+}
+
+.nav-dropdown .menu-item {
+    margin: 12px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-dropdown .menu-item p {
+    margin-left: 15px;
 }
 
 /*  MOBILE SCREENS  */
@@ -43,7 +77,21 @@ nav .btn {
         padding: 15px 10px;
     }
 
+    header .btn {
+        padding: 5px;
+    }
+
     nav {
         display: none;
+    }
+
+    .nav-btn {
+        display: block;
+    }
+
+    
+    .nav-open {
+        display: flex;
+        flex-direction: column;
     }
 }
