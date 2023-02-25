@@ -15,21 +15,21 @@ const Header = () => {
 
   return (
     <header>
-      <h1>Anonymyst</h1>
+      <Link to='/'><h1>Anonymyst</h1></Link>
       <nav className='menu'>
-        <i className='nav-icon'><AiFillHome size={23}  color='white' title='Home' /></i>
-        <i className='nav-icon'><FaPen size={19} color='white' title='Write' /></i>
-        <i className='nav-icon'><FaSearch size={20}  color='white' title='Search' /></i>
-        <i className='btn'>Sign Up</i>
+        <Link to='/' className='nav-icon'><AiFillHome size={23}  color='white' title='Home' /></Link>
+        <Link to='/post' className='nav-icon'><FaPen size={19} color='white' title='Write' /></Link>
+        <Link to='/search' className='nav-icon'><FaSearch size={20}  color='white' title='Search' /></Link>
+        <Link to='/login' className='btn'>Sign Up</Link>
       </nav>
       <button className='nav-btn' onClick={showNavbar}>
         <HiOutlineMenuAlt3 size={23} color='white' />
       </button>
       <div className='nav-dropdown' ref={navRef}>
         <Link to='/' className='nav-icon menu-item'><AiFillHome size={23}  color='white' title='Home' /><p>Home</p></Link>
-        <i className='nav-icon menu-item'><FaPen size={19} color='white' title='Write' /><p>Write</p></i>
-        <i className='nav-icon menu-item'><FaSearch size={20}  color='white' title='Search' /><p>Search</p></i>
-        <i className='btn menu-item'><p>Sign Up</p></i>
+        <Link to='/post'  className='nav-icon menu-item'><FaPen size={19} color='white' title='Write' /><p>Write</p></Link>
+        <Link to='/search'  className='nav-icon menu-item'><FaSearch size={20}  color='white' title='Search' /><p>Search</p></Link>
+        <Link to='/login'  className='btn menu-item'>Sign Up</Link>
       </div>
     </header>
   )

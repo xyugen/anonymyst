@@ -1,9 +1,9 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
-import Home from '../../Pages/Home';
-import Post from '../../Pages/Post';
-import Search from '../../Pages/Search';
-import Login from '../../Pages/Login';
+import Home from '../../Pages/Home/Home';
+import Post from '../../Pages/Post/Post';
+import Search from '../../Pages/Search/Search';
+import Login from '../../Pages/Login/Login';
 
 const Main = () => {
   return (

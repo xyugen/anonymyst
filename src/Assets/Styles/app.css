@@ -33,6 +33,11 @@ h6 {
     color: var(--color-primary);
 }
 
+a {
+    color: var(--color-fg);
+    text-decoration: none;
+}
+
 .btn {
     background-color: var(--color-primary-variant);
     color: var(--color-fg);
