@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import '../../Assets/Styles/header.css';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaPen, FaSearch } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
@@ -26,7 +26,7 @@ const Header = () => {
         <HiOutlineMenuAlt3 size={23} color='white' />
       </button>
       <div className='nav-dropdown' ref={navRef}>
-        <i className='nav-icon menu-item'><AiFillHome size={23}  color='white' title='Home' /><p>Home</p></i>
+        <Link to='/' className='nav-icon menu-item'><AiFillHome size={23}  color='white' title='Home' /><p>Home</p></Link>
         <i className='nav-icon menu-item'><FaPen size={19} color='white' title='Write' /><p>Write</p></i>
         <i className='nav-icon menu-item'><FaSearch size={20}  color='white' title='Search' /><p>Search</p></i>
         <i className='btn menu-item'><p>Sign Up</p></i>
