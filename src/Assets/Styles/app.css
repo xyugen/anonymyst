@@ -9,7 +9,7 @@
     --color-primary-variant: #E92E20;
 
     --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Raleway', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
 }
 
 body {
@@ -17,6 +17,8 @@ body {
     color: var(--color-fg);
 
     font-family: var(--font-secondary);
+    position: relative;
+    min-height: 100vh;
 }
 
 h1,
@@ -39,4 +41,27 @@ h6 {
 
 .btn:hover {
     background-color: var(--color-primary);
+}
+
+.text-l {
+    font-size: large;
+}
+
+.text-sm {
+    font-size: small;
+}
+
+.text-xsm {
+    font-size: x-small;
+}
+
+/*  MOBILE SCREENS  */
+@media only screen and (max-width: 800px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        font-size: 12px;
+    }
 }

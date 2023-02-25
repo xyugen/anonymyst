@@ -36,3 +36,14 @@ nav .btn {
     font-size: 15px;
     cursor: pointer;
 }
+
+/*  MOBILE SCREENS  */
+@media only screen and (max-width: 800px) {
+    header {
+        padding: 15px 10px;
+    }
+
+    nav {
+        display: none;
+    }
+}
