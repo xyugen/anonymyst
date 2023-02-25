@@ -1,0 +1,29 @@
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* set 3 columns with equal width */
+    grid-gap: 20px;
+    /* set the gap between cards */
+}
+
+.post {
+    /* set the card styles */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* add a media query to change the number of columns on smaller screens */
+@media (max-width: 1100px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+        /* set 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 560px) {
+    .posts {
+        grid-template-columns: repeat(1, 1fr);
+        /* set 2 columns on smaller screens */
+    }
+}

@@ -1,0 +1,11 @@
+main {
+    padding: 15px 9em;
+    padding-bottom: 76px;
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        padding: 15px 15px;
+        padding-bottom: 76px;
+    }
+}

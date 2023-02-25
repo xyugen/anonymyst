@@ -1,0 +1,37 @@
+.card {
+    padding: 15px;
+    border: 1px solid var(--color-bg-variant);
+    border-radius: 10px;
+
+    height: 100%;
+}
+
+.card-header {
+    border-bottom: 1px solid var(--color-primary);
+    padding-bottom: 15px;
+}
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: calc(100% - 67px);
+}
+
+.card h2,
+.card .card-date {
+    text-align: center;
+}
+
+.card .card-date {
+    font-style: italic;
+}
+
+.card .card-content {
+    margin: 10px 0;
+}
+
+.card-comments {
+    text-align: right;
+}
