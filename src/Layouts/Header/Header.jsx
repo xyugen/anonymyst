@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <header>
-      Fuck
+      <h1>Anonymyst</h1>
     </header>
   )
 }
