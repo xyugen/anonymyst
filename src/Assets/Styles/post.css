@@ -1,0 +1,90 @@
+.post-form {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em 2em;
+    margin: 5em 15em;
+
+    border: 1px solid var(--color-bg-variant);
+}
+
+.post-form-header {
+    text-align: center;
+    border-bottom: 1px solid var(--color-bg-variant);
+    padding: 0 0 1em 0;
+}
+
+.post-form-form {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em 0;
+}
+
+.post-form-form label{
+    margin: 10px 0;
+}
+
+.post-form-form input[type="submit"] {
+    margin-top: 20px;
+}
+
+/* TITLE */
+.post-form-form #title {
+    background: var(--color-bg-variant);
+    color: var(--color-bg-variant-a);
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: all 0.2s;
+}
+
+.post-form-form #title:hover {
+    cursor: pointer;
+}
+
+.post-form-form #title:focus {
+    cursor: text;
+    color: var(--color-primary);
+}
+
+/* CONTENT */
+.post-form-form textarea {
+    background: var(--color-bg-variant);
+    color: var(--color-bg-variant-a);
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    height: 150px;
+    transition: all 0.2s;
+}
+
+.post-form-form textarea:hover {
+    cursor: pointer;
+}
+
+.post-form-form textarea:focus {
+    cursor: text;
+    color: var(--color-fg);
+}
+
+.post-form-form #post-btn {
+    padding: 7px;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 1100px) {
+    .post-form {
+        margin: 2em 5px;
+    }
+}
