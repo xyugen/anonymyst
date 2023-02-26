@@ -29,7 +29,7 @@ const Header = () => {
         <Link to='/' className='nav-icon menu-item'><AiFillHome size={23}  color='white' title='Home' /><p>Home</p></Link>
         <Link to='/post'  className='nav-icon menu-item'><FaPen size={19} color='white' title='Write' /><p>Write</p></Link>
         <Link to='/search'  className='nav-icon menu-item'><FaSearch size={20}  color='white' title='Search' /><p>Search</p></Link>
-        <Link to='/login'  className='btn menu-item'>Sign Up</Link>
+        <Link to='/login'  className='btn menu-item'><p>Sign Up</p></Link>
       </div>
     </header>
   )

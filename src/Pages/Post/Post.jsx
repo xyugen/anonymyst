@@ -43,7 +43,7 @@ const Post = () => {
       <div className='post-form-content' onSubmit={handleSubmit}>
         <form className='post-form-form'>
           <label htmlFor="title">Title:</label>
-          <input type="text" id="title" value={title} onChange={handleTitleChange} />
+          <input type="text" id="title" placeholder='Anonymous' value={title} onChange={handleTitleChange} />
 
           <label htmlFor="content">Content:</label>
           <textarea id="content" value={content} onChange={handleContentChange} required></textarea>

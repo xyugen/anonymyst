@@ -2,10 +2,11 @@
 
 :root {
     --color-bg: #111213;
-    --color-bg-variant: #17191A;
+    --color-bg-variant: #202225; /* #17191A */
     --color-bg-variant-a: #27292a;
     --color-fg: #fff;
     --color-fg-variant: #dddddd;
+    --color-fg-variant-a: #aaa;
     --color-primary: #F44336;
     --color-primary-variant: #E92E20;
 
