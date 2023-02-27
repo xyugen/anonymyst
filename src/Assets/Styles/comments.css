@@ -1,0 +1,22 @@
+#post {
+    display: flex;
+    justify-content: center;
+}
+
+#post .card {
+    width: 80%;
+    border: 2px solid var(--color-bg-variant);
+}
+
+#comments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.comment {
+    width: 70%;
+    /* Optional: Add margin to create some space between each comment */
+    margin-top: 10px;
+}

@@ -28,11 +28,14 @@ const Home = () => {
     return new Date(date).toLocaleDateString("en-US", options);
   }
 
+  console.log(data);
+
   return (
     <div className='posts'>
       {data.map((post) => (
         <Card
-          key={post.id}
+          key={post.post_id}
+          id={post.post_id}
           title={post.title}
           date={formatDate(post.created_at)}
           content={post.content}

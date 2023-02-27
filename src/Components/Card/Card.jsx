@@ -3,7 +3,7 @@ import '../../Assets/Styles/card.css'
 import { FaRegComments } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const Card = ({ key, title, content, date, comCount }) => {
+const Card = ({ key, id, title, content, date, comCount }) => {
   return (
     <div className='card'>
         <div className='card-header'>
@@ -12,9 +12,11 @@ const Card = ({ key, title, content, date, comCount }) => {
         </div>
         <div className='card-main'>
             <p className='card-content'>{content}</p>
-            <div className='card-comments-container'>
-                <Link to='/' className='card-comments'><FaRegComments size={25}/>{comCount}</Link>
-            </div>
+            {id &&
+              <div className='card-comments-container'>
+                <Link to={`/post/${id}`} className='card-comments'><FaRegComments size={25}/>{comCount}</Link>
+              </div>
+            }
         </div>
     </div>
   )
