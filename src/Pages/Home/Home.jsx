@@ -22,7 +22,11 @@ const Home = () => {
     fetchData();
   }, []);
 
-  console.log(data);
+  const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric'};
+
+    return new Date(date).toLocaleDateString("en-US", options);
+  }
 
   return (
     <div className='posts'>
@@ -30,7 +34,7 @@ const Home = () => {
         <Card
           key={post.id}
           title={post.title}
-          date={post.date}
+          date={formatDate(post.created_at)}
           content={post.content}
           comCount={post.comments[0].count}
         />
