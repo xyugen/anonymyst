@@ -1,0 +1,15 @@
+.dialog-error {
+    padding: 10px;
+    border-radius: 3px;
+    border: 2px solid var(--color-primary);
+
+    background-color: var(--color-error);
+}
+
+.dialog-success {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--color-secondary);
+
+    background-color: var(--color-success);
+}
