@@ -4,6 +4,7 @@ import { supabase } from '../../Services/supabase';
 import CommentCard from '../../Components/Card/CommentCard';
 import Card from '../../Components/Card/Card';
 import '../../Assets/Styles/comments.css'
+import CommentBox from '../../Components/Input/CommentBox';
 
 const Comment = () => {
     const [data, setData] = useState([]);
@@ -31,15 +32,11 @@ const Comment = () => {
         fetchData();
     }, [params]);
 
-    console.log(params.id);
-
     const formatDate = (date) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric'};
 
         return new Date(date).toLocaleDateString("en-US", options);
     }
-
-    console.log(data);
 
     return (
         <>
@@ -61,6 +58,8 @@ const Comment = () => {
                                 content={comment.content}
                             />
                         ))}
+
+                        <CommentBox />
                     </div>
                 </div>
             ))}
