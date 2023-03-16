@@ -6,6 +6,8 @@ import { FaPen, FaSearch } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
+import logo from '../../Assets/Images/anonymyst-logo-nbg.png'
+
 const Header = () => {
   const navRef = useRef();
 
@@ -15,7 +17,7 @@ const Header = () => {
 
   return (
     <header>
-      <Link to='/'><h1>Anonymyst</h1></Link>
+      <Link className='header-logo' to='/'><img src={ logo } id='header-logo-img' /><h1>Anonymyst</h1></Link>
       <nav className='menu'>
         <Link to='/' className='nav-icon'><AiFillHome size={23}  color='white' title='Home' /></Link>
         <Link to='/post' className='nav-icon'><FaPen size={19} color='white' title='Write' /></Link>

@@ -6,6 +6,15 @@ header {
     justify-content: space-between;
 }
 
+header .header-logo {
+    display: flex;
+}
+
+header .header-logo #header-logo-img {
+    width: 50px;
+    margin-right: 5px;
+}
+
 nav {
     width: 20em;
 
