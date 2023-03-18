@@ -107,4 +107,9 @@ header .btn {
         display: flex;
         flex-direction: column;
     }
+
+    header .header-logo #header-logo-img {
+        width: 38px;
+        margin-right: 5px;
+    }
 }
