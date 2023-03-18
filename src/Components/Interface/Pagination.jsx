@@ -1,31 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
+import '../../Assets/Styles/pagination.css'
 
-const Pagination = ({ totalItems }) => {
-    const [page, setPage] = useState(1);
-    const items = 3;
+const Pagination = ({ goToPage, page, items, totalItems }) => {
+  const totalPages = Math.ceil(totalItems / items);
+  const pageLinks = [];
 
-    const totalPages = Math.ceil(totalItems / items);
-    const pages = [...Array(totalPages).keys()].map((i) => i + 1);
-    
-    const goToPage = (newPage) => {
-        setPage(newPage);
-    };
-
-    return (
-        <nav>
-            <ul className="pagination">
-            {pages.map((pageNumber) => (
-                <li key={pageNumber} className="page-item">
-                <button
-                    className="page-link"
-                    onClick={() => goToPage(pageNumber)} >
-                    {pageNumber}
-                </button>
-                </li>
-            ))}
-            </ul>
-        </nav>
+  for (let i = 1; i <= totalPages; i++) {
+    pageLinks.push(
+      <li key={i} className={i === page ? "active" : ""}>
+        <button onClick={() => goToPage(i)}>{i}</button>
+      </li>
     );
-}
+  }
+
+  return <ul className="pagination">{pageLinks}</ul>;
+};
 
 export default Pagination

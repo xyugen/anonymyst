@@ -7,36 +7,39 @@ import Pagination from '../../Components/Interface/Pagination'
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [totalPosts, setTotalPosts] = useState();
   const [page, setPage] = useState(1);
-  const [items, setItems] = useState(20);
+  const ITEMS_PER_PAGE = 9;
 
-  const start = items * page - items;
-  const end = items * page - 1;
-  
-  
+  const [start, setStart] = useState(ITEMS_PER_PAGE * page - ITEMS_PER_PAGE);
+  const [end, setEnd] = useState(ITEMS_PER_PAGE * page - 1);
 
   const goToPage = (newPage) => {
       setPage(newPage);
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      const { data, error } = await supabase
-        .from("posts")
-        .select(
-          `
-          *,
-          comments(count)
-        `
-        )
-        .order("post_id", { ascending: false })
-        .range(start, end);
-      if (error) console.log('Error fetching data: ', error);
-      else setData(data);
-    }
+  console.log(end);
+  console.log(start);
 
+  useEffect(() => {
+    const newStart = ITEMS_PER_PAGE * (page - 1);
+    const newEnd = ITEMS_PER_PAGE * page - 1;
+    async function fetchData() {
+      const { data, count, error } = await supabase
+        .from("posts")
+        .select(`*, comments(count)`, { count: "exact" })
+        .order("post_id", { ascending: false })
+        .range(newStart, newEnd);
+      if (error) console.log("Error fetching data: ", error);
+      else {
+        setData(data);
+        setTotalPosts(count);
+      }
+    }
     fetchData();
-  }, []);
+    setStart(newStart);
+    setEnd(newEnd);
+  }, [page, ITEMS_PER_PAGE]);
 
   const formatDate = (date) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric'};
@@ -59,8 +62,7 @@ const Home = () => {
           />
         ))}
       </div>
-      <ul className="pagination">
-      </ul>
+      <Pagination goToPage={goToPage} page={page} items={ITEMS_PER_PAGE} totalItems={totalPosts} />
     </>
   )
 }
