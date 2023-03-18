@@ -8,7 +8,7 @@ import Pagination from '../../Components/Interface/Pagination'
 const Home = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const [items, setItems] = useState(10);
+  const [items, setItems] = useState(20);
 
   const start = items * page - items;
   const end = items * page - 1;
@@ -22,11 +22,14 @@ const Home = () => {
   useEffect(() => {
     async function fetchData() {
       const { data, error } = await supabase
-        .from('posts')
-        .select(`
+        .from("posts")
+        .select(
+          `
           *,
           comments(count)
-        `)
+        `
+        )
+        .order("post_id", { ascending: false })
         .range(start, end);
       if (error) console.log('Error fetching data: ', error);
       else setData(data);
