@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../Assets/Styles/post.css";
 import { useNavigate } from "react-router-dom";
 import Dialog from "../../Components/DialogBox/Dialog";
+import { FaFileUpload } from "react-icons/fa";
 
 import { supabase } from "../../Services/supabase";
 
@@ -9,6 +10,7 @@ const Post = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState({});
+  const [fileName, setFileName] = useState('Upload image...');
   const [errorMessage, setErrorMessage] = useState("");
 
   const MAX_FILE_SIZE = 8000000;
@@ -30,6 +32,12 @@ const Post = () => {
       // 8MB limit
       setErrorMessage("File size cannot exceed 8MB.");
       return;
+    }
+
+    if (file) {
+      setFileName(file.name);
+    } else {
+      setFileName("Upload image...");
     }
 
     setImage(file);
@@ -123,7 +131,7 @@ const Post = () => {
       <div className="post-form-content">
         {errorMessage && <Dialog dialog={"error"} content={errorMessage} />}
         <form className="post-form-form" onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title" id="title-label">Title:</label>
           <input
             type="text"
             id="title"
@@ -132,7 +140,7 @@ const Post = () => {
             onChange={handleTitleChange}
           />
 
-          <label htmlFor="content">Content:</label>
+          <label htmlFor="content" id="content-label">Content:</label>
           <input
             type="file"
             id="image-upload"
@@ -141,6 +149,9 @@ const Post = () => {
             title="Upload image"
             onChange={handleImageChange}
           />
+          <label htmlFor="image-upload" id="image-upload-label">
+            <FaFileUpload /> {fileName}
+          </label>
           <textarea
             id="content"
             value={content}
