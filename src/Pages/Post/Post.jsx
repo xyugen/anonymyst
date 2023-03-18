@@ -24,7 +24,6 @@ const Post = () => {
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
 
     // Check file size
     if (file.size > MAX_FILE_SIZE) {
@@ -33,11 +32,7 @@ const Post = () => {
       return;
     }
 
-    reader.onload = () => {
-      setImage(reader.result);
-    };
-
-    reader.readAsDataURL(file);
+    setImage(file);
   };
 
   const handleSubmit = async (e) => {
@@ -87,7 +82,7 @@ const Post = () => {
         .from("images")
         .upload(`public/${postId}.jpg`, image, {
           cacheControl: '3600',
-          contentType: 'image/png'
+          contentType: 'image/jpg'
         });
 
       if (imageError) {

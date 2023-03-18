@@ -51,6 +51,7 @@ const Home = () => {
             title={post.title}
             date={formatDate(post.created_at)}
             content={post.content}
+            haveImage={post.image_url}
             comCount={post.comments[0].count}
           />
         ))}

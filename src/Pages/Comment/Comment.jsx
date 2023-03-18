@@ -48,6 +48,7 @@ const Comment = () => {
                             title={post.title}
                             date={formatDate(post.created_at)}
                             content={post.content}
+                            image={post.image_url}
                         />
                     </div>
                     <div id='comments' className='comments'>
