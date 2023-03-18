@@ -5,12 +5,13 @@ import Dialog from "../../Components/DialogBox/Dialog";
 import { FaFileUpload } from "react-icons/fa";
 
 import { supabase } from "../../Services/supabase";
+import Compressor from "compressorjs";
 
 const Post = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [image, setImage] = useState({});
-  const [fileName, setFileName] = useState('Upload image...');
+  const [image, setImage] = useState();
+  const [fileName, setFileName] = useState("Upload image...");
   const [errorMessage, setErrorMessage] = useState("");
 
   const MAX_FILE_SIZE = 8000000;
@@ -36,11 +37,21 @@ const Post = () => {
 
     if (file) {
       setFileName(file.name);
+      
+      // Compress uploaded image
+      new Compressor(file, {
+        quality: 0.6,
+        success: (compressedFile) => {
+          setImage(compressedFile);
+        },
+        error: (err) => {
+          console.log(err.message);
+          setErrorMessage("An error occured while compressing image.");
+        },
+      });
     } else {
       setFileName("Upload image...");
     }
-
-    setImage(file);
   };
 
   const handleSubmit = async (e) => {
@@ -56,7 +67,7 @@ const Post = () => {
     }
 
     // Check if image is uploaded and its size is valid
-    if (!image || image.size > MAX_FILE_SIZE) {
+    if (image && image.size > MAX_FILE_SIZE) {
       setErrorMessage(
         `Image must be less than ${MAX_FILE_SIZE / (1024 * 1024)} MB.`
       );
@@ -76,7 +87,6 @@ const Post = () => {
     }
 
     console.log("Post created successfully:", postData);
-    console.log(postData);
 
     // Upload the image to Supabase Storage and connect it to the post
     const postId = postData[0]?.post_id; // add a check for existence of postData
@@ -89,8 +99,8 @@ const Post = () => {
       const { data: imageData, error: imageError } = await supabase.storage
         .from("images")
         .upload(`public/${postId}.jpg`, image, {
-          cacheControl: '3600',
-          contentType: 'image/jpg'
+          cacheControl: "3600",
+          contentType: "image/jpg",
         });
 
       if (imageError) {
@@ -109,7 +119,7 @@ const Post = () => {
       const { data: updateData, error: updateError } = await supabase
         .from("posts")
         .update({ image_url: `${publicURL.publicUrl}` })
-        .eq('post_id', postData[0].post_id );
+        .eq("post_id", postData[0].post_id);
 
       if (updateError) {
         console.log("Error updating post:", updateError);
@@ -131,16 +141,21 @@ const Post = () => {
       <div className="post-form-content">
         {errorMessage && <Dialog dialog={"error"} content={errorMessage} />}
         <form className="post-form-form" onSubmit={handleSubmit}>
-          <label htmlFor="title" id="title-label">Title:</label>
+          <label htmlFor="title" id="title-label">
+            Title:
+          </label>
           <input
             type="text"
             id="title"
             placeholder="Anonymous"
             value={title}
+            maxLength={50}
             onChange={handleTitleChange}
           />
 
-          <label htmlFor="content" id="content-label">Content:</label>
+          <label htmlFor="content" id="content-label">
+            Content:
+          </label>
           <input
             type="file"
             id="image-upload"
