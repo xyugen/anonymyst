@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { supabase } from '../../Services/supabase'
 import Dialog from '../DialogBox/Dialog';
 
-import './commentbox.css'
+import '../../Assets/Styles/commentbox.css'
 
 const CommentBox = () => {
   const [title, setTitle] = useState('');

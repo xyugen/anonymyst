@@ -4,7 +4,7 @@
 }
 
 #post .card {
-    width: 80%;
+    width: 100%;
     border: 2px solid var(--color-bg-variant);
 }
 
@@ -16,7 +16,7 @@
 }
 
 .comment {
-    width: 70%;
+    width: 95%;
     /* Optional: Add margin to create some space between each comment */
     margin-top: 10px;
 }

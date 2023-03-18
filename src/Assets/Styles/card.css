@@ -58,7 +58,20 @@
     flex-direction: row-reverse;
 }
 
-/* IMAGE ICON */
+/* IMAGE */
+.card-image-container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+
+    overflow: hidden;
+}
+
+.card-image {
+    margin-top: 10px;
+    width: 45rem;
+}
+
 .image-icon {
     display: flex;
     font-size: 12px;
@@ -97,4 +110,10 @@
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
+}
+
+@media only screen and (max-width: 800px) {
+    .card-image {
+        width: 100%;
+    }
 }

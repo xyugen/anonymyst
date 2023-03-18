@@ -17,7 +17,11 @@ const Card = ({ key, id, title, content, image, haveImage, date, comCount }) => 
         <p className="text-sm card-date">{date}</p>
       </div>
       <div className="card-main">
-        {image && <img className="card-image" alt="Post" src={image} />}
+        {image &&
+          <div className='card-image-container'>
+            <img className="card-image" alt="Post" src={image} />
+          </div>
+        }
         <p className="card-content">{content}</p>
         <div className="card-btns">
           {id && (
